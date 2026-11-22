@@ -1,0 +1,16 @@
+plugins { id 'com.android.application' }
+// Keep the demo API key outside source control. It is still extractable from a shipped APK.
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) localPropsFile.withInputStream { localProps.load(it) }
+def pixabayKey = localProps.getProperty('pixabayApiKey', '')
+
+android {
+    namespace 'com.example.pinspire'
+    buildFeatures { buildConfig true }
+    compileSdk 35
+    defaultConfig { applicationId 'com.example.pinspire'; minSdk 24; targetSdk 28; versionCode 4; versionName '1.3'
+        buildConfigField 'String', 'PIXABAY_API_KEY', '"' + pixabayKey.replace('\\','\\\\').replace('"','\\"') + '"'
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
