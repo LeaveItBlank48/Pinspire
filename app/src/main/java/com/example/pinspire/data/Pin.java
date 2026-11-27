@@ -72,8 +72,6 @@ public class Pin {
         return new ArrayList<>(out);
     }
 
-    public int accentColor() { return palette.length > 0 ? palette[0] : color; }
-
     public Pin copy() {
         Pin p = new Pin(id);
         p.title = title; p.description = description; p.uri = uri; p.fullUrl = fullUrl;

@@ -2,7 +2,6 @@ package com.example.pinspire;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
@@ -184,10 +183,5 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportFragmentManager().isStateSaved()) return;
         PinCache.put(p);
         SaveSheet.newInstance(p.id).show(getSupportFragmentManager(), "save");
-    }
-
-    public static void toast(String msg) {
-        MainActivity a = current();
-        if (a != null) Toast.makeText(a, msg, Toast.LENGTH_SHORT).show();
     }
 }

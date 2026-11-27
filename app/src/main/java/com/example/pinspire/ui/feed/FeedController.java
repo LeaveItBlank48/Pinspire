@@ -37,7 +37,6 @@ public final class FeedController {
     private final FooterAdapter footer;
     private final FeedViewModel vm;
     private final Prefix prefix;
-    private final int headerCount;
     @Nullable private final SwipeRefreshLayout refresh;
 
     public FeedController(Fragment fragment, RecyclerView list, @Nullable SwipeRefreshLayout refresh,
@@ -65,7 +64,6 @@ public final class FeedController {
         if (header != null) concat.addAdapter(new SingleViewAdapter(header));
         concat.addAdapter(pins);
         concat.addAdapter(footer);
-        headerCount = header != null ? 1 : 0;
         list.setAdapter(concat);
 
         list.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -100,8 +98,6 @@ public final class FeedController {
 
     private MainActivity main() { return (MainActivity) fragment.requireActivity(); }
 
-    public PinAdapter adapter() { return pins; }
-
     public FooterAdapter footer() { return footer; }
 
     private void render(FeedViewModel.State s) {
@@ -128,6 +124,4 @@ public final class FeedController {
         if (min > 30) list.scrollToPosition(12);
         list.smoothScrollToPosition(0);
     }
-
-    public int headerCount() { return headerCount; }
 }
