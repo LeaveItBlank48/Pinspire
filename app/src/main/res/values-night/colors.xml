@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ink">#F1F1EE</color>
+    <color name="paper">#111111</color>
+    <color name="surface2">#1D1D1C</color>
+    <color name="surface3">#2A2A28</color>
+    <color name="line">#262625</color>
+    <color name="line_strong">#3A3A38</color>
+    <color name="muted">#9C9C97</color>
+    <color name="spark">#9187FF</color>
+    <color name="spark_soft">#25213F</color>
+    <color name="on_spark">#111111</color>
+</resources>

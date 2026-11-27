@@ -1,12 +1,13 @@
-# Pinspire — Pixabay setup
+# Pinspire — Pixabay setup (optional)
 
-1. Sign in at https://pixabay.com/api/docs/ to see your API key beside the `key` field.
-2. Open the **root Pinspire folder** in Android Studio.
-3. Find or create `local.properties` in that folder (next to `settings.gradle`).
-4. Add a line: `pixabayApiKey=YOUR_ACTUAL_KEY` (no quotes, no spaces around `=`).
-5. Sync Gradle, connect your Android phone, and press Run. The image feed now uses Pixabay.
-6. Test: search `korean streetwear`, choose Fashion, scroll, open a result, and save it to a board.
+Pinspire works without any setup: with no key it loads images from Wikimedia Commons. Pixabay gives more modern, "aesthetic" photos and supports exact color filtering, so it is recommended.
 
-The app keeps the existing UI, offline-created posts, editable posts, boards, and on-device interest scoring. Existing saved Wikimedia posts are unaffected. New Pixabay results contain source attribution; saving a result downloads a copy into app-private storage so the saved image remains available when the temporary search URL expires. The user's personal content is not deleted during an in-place signed update.
+1. Sign in at https://pixabay.com/api/docs/ and copy your API key (shown next to the `key` parameter).
+2. Open `local.properties` in the project root (next to `settings.gradle`).
+3. Replace the placeholder line with your real key: `pixabayApiKey=1234567-abcdef...` (no quotes, no spaces around `=`).
+   The placeholder `YOUR_PIXABAY_API_KEY` is treated as "no key".
+4. Sync Gradle and run the app again.
 
-**Limitations:** Pixabay may have few images for niche searches, such as Korean streetwear. The app will show no results instead of substituting unrelated images. The API response cache is retained on-device for 24 hours, using app-private cache storage. Production deployments need additional robustness around cache eviction, rate limits, and error recovery. This student demo stores the API access key in the APK build; that key is recoverable by people who have the APK. Never put a secret key in an APK. A publicly released version needs a backend proxy that protects API credentials, enforces terms and rate limits, and implements a 24-hour cache. Review Pixabay's license and restrictions before redistribution or commercial release. This ZIP has not been emulator-tested or compiled here.
+`local.properties` is in `.gitignore`, so the key is never committed. Note that a key built into an APK can be extracted by anyone who has the APK; a public release should call Pixabay through your own server instead.
+
+API responses are cached on the device for 24 hours, as Pixabay's terms require. Saving a pin downloads a private copy of the image, because Pixabay's image URLs expire.

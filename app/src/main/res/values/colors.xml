@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ink">#1B1B1B</color>
+    <color name="paper">#FFFFFF</color>
+    <color name="surface2">#F4F4F1</color>
+    <color name="surface3">#EAEAE6</color>
+    <color name="line">#ECECE8</color>
+    <color name="line_strong">#D6D6D1</color>
+    <color name="muted">#7C7C78</color>
+    <!-- Pinspire accent (ultraviolet), used for Spark and Color DNA features. -->
+    <color name="spark">#5B4BFF</color>
+    <color name="spark_soft">#ECEAFF</color>
+    <color name="on_spark">#FFFFFF</color>
+    <color name="launcher_bg">#1B1B1B</color>
+</resources>

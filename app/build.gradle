@@ -1,4 +1,5 @@
 plugins { id 'com.android.application' }
+
 // Keep the demo API key outside source control. It is still extractable from a shipped APK.
 def localProps = new Properties()
 def localPropsFile = rootProject.file('local.properties')
@@ -7,10 +8,42 @@ def pixabayKey = localProps.getProperty('pixabayApiKey', '')
 
 android {
     namespace 'com.example.pinspire'
-    buildFeatures { buildConfig true }
     compileSdk 35
-    defaultConfig { applicationId 'com.example.pinspire'; minSdk 24; targetSdk 28; versionCode 4; versionName '1.3'
-        buildConfigField 'String', 'PIXABAY_API_KEY', '"' + pixabayKey.replace('\\','\\\\').replace('"','\\"') + '"'
+
+    defaultConfig {
+        applicationId 'com.example.pinspire'
+        minSdk 24
+        targetSdk 35
+        versionCode 5
+        versionName '2.0'
+        buildConfigField 'String', 'PIXABAY_API_KEY', '"' + pixabayKey.replace('\\', '\\\\').replace('"', '\\"') + '"'
     }
-    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+
+    buildFeatures { buildConfig true }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity:1.9.3'
+    implementation 'androidx.fragment:fragment:1.8.5'
+    implementation 'androidx.core:core:1.13.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.8.7'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
 }
