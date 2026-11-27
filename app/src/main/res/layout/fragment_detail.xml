@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="9dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="9dp"
+        android:paddingBottom="16dp" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="18dp"
+        android:background="@drawable/circle_scrim"
+        android:contentDescription="Back"
+        android:elevation="2dp"
+        android:src="@drawable/ic_back"
+        app:tint="#1B1B1B" />
+</FrameLayout>
